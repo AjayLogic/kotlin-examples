@@ -3,7 +3,8 @@
 //tag::content[]
 TODO: in progress ...in very beginning
 
-. link:./netty[Netty]
+. link:./kotlin-coroutines-echo-ehlo[Kotln coroutines plain socket echo-ehlo service]
+. link:./netty[Netty (TODO)]
 
 other repos:
 

@@ -5,13 +5,14 @@ env:
   - secure: "ly36768fotI0oeMXXHBrf3aVWGLbgTofFA1AcXj/I0ToVk+I5ecR/JugXu344qoCbBWlZm2PUofkXkd7YtSdbtlJeNemKlV+nF4P5KXqKwZJXzzIh9lcN+cntAwFBZ9QGMDyk/ku6kaUN5akgUSwg9WFsjPMBO6QScJitmwE95TXq92jmEmLlGFEcjuqLol3NRemjcyu2T0BYsOeZZ5SrkMpdZvq031FpJCR1c+mL9rkne6D6caUnHSVS2jBry//bfsVHux+JFOI1QDeuQXgNwUCsLLCH1pTcByTcWMNS63yI1nc8JH/DBmLmNSOA2Zun8m49tgnDpmTPvWtjLvC+F6D+PxjldSpq3beXGRhzi23SVAJ/JfuH+cx+cIQF8wCAfB7ZijYPA7p8VtU4oftyQZPaNdcIpjooEwfytIp3p90iITeScZDggxOk/Uez6lm1g/sHOJ+bdAAb2FAd/AWocwUXMQgSywQTmTZEb6pHt5CQHbZ8QNWhj6qk50/YQFQ2yc4YwREqbxghx3X4HduwAE9OIDnXFEZPtyFA0fjtD2puQP07ml8+s6DrTpY0TqUiR2VNgQret8vOHd/YqNTiZj0UrJqvp7ONbdogxMUDVI6ppIQAQl3lV8HSPoPbs6qj5PPfah3zjjiixCf9qIO3NBLgfAHedo+lLX3iR/D3lA="
   - secure: "NZEPLyHf31v1v5sBKJvkiO3kCnHLTjkKEZlBVfK/rDfBDdXNRulIpSJAr2ABa0SLmwo6AI1OcNK5fN76JBPBEXFm7gHxgJkNj5f0NJepYYOQ0wIkps4z4TexsIubsbfg4z2uW2EDhiyke7JVnDVSrTJ/z8a3d8SGWRxZqNXYe4gxncvzKxQmZTMpX7YiqW/vyxfMBiRwXi1znc5P0uMjri+Lhcpn2iTAguTVBKyMNjTFG4J8sDyeY+Nw7h3Jwelp1wh6vthFDsD41MzmhYKnwUBiwNXs2QOup8AAqBeMfXhm1ByLuoEgwRyInJd4RhwBbEH4xSrtn9ltOSDV6oAj+iwxnWzz1uWrov6zBHn8cnVw1rVIhQBXYEqfR66fj7TJ6cBfogFCHo1mkaXEvnG7qC0AQFeVTXKZ0kmDytad3vBh2AKUFUPwHz29VKgnjD/+xqEdTlk42m+bSy5XD/xv1cbedxogfnuFlipGhcuzZnvD26B2zXbFamSS8iI6kpCmrrDoVeYSyChBw5whzgBBk2afNZ2SVNzuyg+1QeY/ubGSbaIrx7/hkmYk7caURQEfZm4yoknWp6A85v1+iIff996q0EcVzHLV+NLgH+QTIH76MciHvouWPUSSk8WVgTtyor0/DUPNMeOrTo2gTpxtryYjC6XxfGUUxJ8SccwXkTI="
 language: java
-jdk:
-- oraclejdk8
-- openjdk8
+#jdk:
+#- oraclejdk8
+#- openjdk8
+jdk: oraclejdk8
 install: true
 before_script:
-- sudo apt update -y || true
-- sudo apt install -y --no-install-recommends bash unzip curl
+- sudo apt update -y || true >/dev/null 2>&1
+- sudo apt install -y --no-install-recommends bash unzip curl >/dev/null 2>&1
 - source <(curl -fsSL https://raw.github.com/daggerok/bash-functions/master/main.bash)
 - stop_any 27017 8080 80
 script:
@@ -21,8 +22,23 @@ script:
 #    -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD || true
 - bash gradlew -b docs/build.gradle clean asciidoctor
 #
-- bash gradlew
-- bash mvnw
+- bash gradlew >/dev/null 2>&1
+- bash mvnw >/dev/null 2>&1
+#
+- java -jar kotlin-coroutines-echo-ehlo/build/libs/*-all.jar
+- stop_any 8080 80
+- bash kotlin-coroutines-echo-ehlo/build/install/kotlin-coroutines-echo-ehlo/bin/kotlin-coroutines-echo-ehlo
+- stop_any 8080 80
+- >
+  for arch in \
+    $(ls kotlin-coroutines-echo-ehlo/build/distributions/*.zip) \
+  ; do
+    unzip -o ${arch} -d /tmp
+  done;
+- bash /tmp/kotlin-coroutines-echo-ehlo-0.0.1/bin/kotlin-coroutines-echo-ehlo
+- stop_any 8080 80
+- java -jar kotlin-coroutines-echo-ehlo/target/*-all.jar
+- stop_any 8080 80
 #
 - java -jar plain-java-sockets/build/libs/*-all.jar
 - stop_any 8080 80

@@ -13,8 +13,9 @@ class AppKt {
 
 fun main(args: Array<String>) {
   SocketServer.start()
+  SocketServer.waitForSecond()
   SocketClient.publish("ping")
   SocketClient.publish("hola!")
-  SocketServer.waitForReady()
+  SocketServer.waitForSecond()
   SocketServer.stop()
 }

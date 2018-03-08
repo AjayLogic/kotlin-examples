@@ -84,7 +84,7 @@ class SocketServer {
       log.info("server stopped.")
     }
 
-    fun waitForReady() {
+    fun waitForSecond() {
       while (!ready())
         TimeUnit.SECONDS.sleep(1)
     }

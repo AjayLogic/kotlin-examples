@@ -10,7 +10,7 @@ java -jar build/libs/*-all.jar
 bash build/libs/*-all.jar
 
 ./gradlew installDist
-bash netty/build/install/netty/bin/netty
+bash plain-java-sockets/build/install/plain-java-sockets/bin/plain-java-sockets
 
 ./mvnw
 java -jar target/*-all.jar
