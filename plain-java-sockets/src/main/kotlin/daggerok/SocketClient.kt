@@ -5,10 +5,10 @@ import java.io.ByteArrayOutputStream
 import java.net.Socket
 import java.nio.charset.StandardCharsets.UTF_8
 
-class SocketCleint {
+class SocketClient {
   companion object {
 
-    private val log = LoggerFactory.getLogger(SocketCleint::class.java)
+    private val log = LoggerFactory.getLogger(SocketClient::class.java)
     private const val port = 8080
 
     private val client: Socket by lazy {

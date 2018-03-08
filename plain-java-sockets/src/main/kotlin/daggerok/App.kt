@@ -1,8 +1,5 @@
 package daggerok
 
-import kotlinx.coroutines.experimental.async
-import java.util.concurrent.TimeUnit
-
 /*
 class AppKt {
   companion object {
@@ -16,8 +13,8 @@ class AppKt {
 
 fun main(args: Array<String>) {
   SocketServer.start()
-  SocketCleint.publish("ping")
-  SocketCleint.publish("hola!")
+  SocketClient.publish("ping")
+  SocketClient.publish("hola!")
   SocketServer.waitForReady()
   SocketServer.stop()
 }
