@@ -15,7 +15,7 @@ Maksim Kostromin <daggerok@gmail.com>
 include::includes/Introduction.adoc[]
 
 == Projects
-include::../../netty/README.adoc[tags=content]
+include::../../kotlin-netty/README.adoc[tags=content]
 include::../../redis-lettuce/README.adoc[tags=content]
 include::../../plain-java-sockets/README.adoc[tags=content]
 include::../../kotlin-coroutines-echo-ehlo/README.adoc[tags=content]

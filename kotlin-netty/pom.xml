@@ -9,7 +9,7 @@
     <version>0.1.5-SNAPSHOT</version>
   </parent>
 
-  <artifactId>netty</artifactId>
+  <artifactId>kotlin-netty</artifactId>
   <packaging>jar</packaging>
 
   <dependencies>

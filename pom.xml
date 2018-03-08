@@ -55,7 +55,7 @@
   </profiles>
 
   <modules>
-    <module>netty</module>
+    <module>kotlin-netty</module>
     <module>redis-lettuce</module>
     <module>plain-java-sockets</module>
     <module>kotlin-coroutines-echo-ehlo</module>

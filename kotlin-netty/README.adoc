@@ -1,7 +1,7 @@
-= netty image:https://travis-ci.org/daggerok/kotlin-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/kotlin-examples"]
+= kotlin-netty image:https://travis-ci.org/daggerok/kotlin-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/kotlin-examples"]
 
 //tag::content[]
-=== netty
+=== kotlin-netty
 
 ----
 ./gradlew
@@ -9,7 +9,7 @@ java -jar build/libs/*-all.jar
 bash build/libs/*-all.jar
 
 ./gradlew installDist
-bash netty/build/install/netty/bin/netty
+bash kotlin-netty/build/install/kotlin-netty/bin/kotlin-netty
 
 ./mvnw
 java -jar target/*-all.jar

@@ -70,16 +70,16 @@ script:
 - java -jar redis-lettuce/target/*-all.jar
 - stop_any 6379
 #
-- java -jar netty/build/libs/*-all.jar
-- bash netty/build/install/netty/bin/netty
+- java -jar kotlin-netty/build/libs/*-all.jar
+- bash kotlin-netty/build/install/kotlin-netty/bin/kotlin-netty
 - >
   for arch in \
-    $(ls netty/build/distributions/*.zip) \
+    $(ls kotlin-netty/build/distributions/*.zip) \
   ; do
     unzip -o ${arch} -d /tmp
   done;
-- bash /tmp/netty-0.0.1/bin/netty
-- java -jar netty/target/*-all.jar
+- bash /tmp/kotlin-netty-0.0.1/bin/kotlin-netty
+- java -jar kotlin-netty/target/*-all.jar
 cache:
   directories:
   - ${HOME}/.m2
