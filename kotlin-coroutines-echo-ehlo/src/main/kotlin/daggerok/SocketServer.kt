@@ -4,6 +4,7 @@ import kotlinx.coroutines.experimental.async
 import org.slf4j.LoggerFactory
 import java.io.DataInputStream
 import java.io.DataOutputStream
+import java.io.EOFException
 import java.net.ServerSocket
 import java.net.Socket
 import java.util.concurrent.TimeUnit
@@ -33,21 +34,24 @@ class SocketServer {
           log.debug("handling client request...")
 
           Thread({
-            client.use { sock ->
-              sock.getInputStream().use {
-                // security; validateRequest...
-                val request = DataInputStream(it).readUTF()
-                log.debug("requested data: $request")
-                DataOutputStream(sock.getOutputStream()).use {
-                  it.writeUTF("ehlo: ${request.reversed()}")
+            try {
+              client.use { sock ->
+                sock.getInputStream().use {
+                  // security; validateRequest...
+                  val request = DataInputStream(it).readUTF()
+                  log.debug("requested data: $request")
+                  DataOutputStream(sock.getOutputStream()).use {
+                    it.writeUTF("ehlo: ${request.reversed()}")
+                  }
                 }
               }
+            } catch (eof: EOFException) {
+              log.debug("client closed connection.")
             }
-          }).start()
-              .also {
-                // cleanup client requested resources...
-                clients.remove(client)
-              }
+          }).start().also {
+            // cleanup client requested resources...
+            clients.remove(client)
+          }
         }
       }
 
