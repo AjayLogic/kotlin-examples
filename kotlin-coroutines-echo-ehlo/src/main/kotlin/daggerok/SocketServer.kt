@@ -25,7 +25,7 @@ class SocketServer {
 
       log.debug("starting...")
 
-      val deferred = async {
+      async {
         while (true) {
 
           val client = server.accept()
@@ -53,9 +53,7 @@ class SocketServer {
             clients.remove(client)
           }
         }
-      }
-
-      deferred.apply {
+      }.apply {
         TimeUnit.SECONDS.sleep(1)
         log.info("listening port {}", port)
       }
