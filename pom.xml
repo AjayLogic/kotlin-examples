@@ -59,6 +59,7 @@
     <module>redis-lettuce</module>
     <module>plain-java-sockets</module>
     <module>kotlin-coroutines-echo-ehlo</module>
+    <module>netty-in-action</module>
   </modules>
 
   <properties>

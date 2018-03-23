@@ -10,7 +10,7 @@ class NettyServer : ChannelInboundHandlerAdapter() {
   companion object {
     fun start(port: Int = 8080) {
       val boss = NioEventLoopGroup()
-      val worker = NioEventLoopGroup()
+      val worker = NioEventLoopGroup(4)
       val serverBootstrap = ServerBootstrap()
       serverBootstrap.group(boss, worker)
     }
