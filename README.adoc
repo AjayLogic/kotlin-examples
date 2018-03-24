@@ -4,7 +4,7 @@
 TODO: in progress ...in very beginning
 
 . link:./kotlin-coroutines-echo-ehlo[Kotln coroutines plain socket echo-ehlo service]
-. link:./kotlin-netty[Netty (TODO)]
+. link:./kotlin-netty[Kotlin Netty request-response / client-server app]
 
 other repos:
 
@@ -15,8 +15,6 @@ links:
 
 . link:https://docs.gradle.org/current/userguide/distribution_plugin.html[gradle distribution plugin]
 
-TODO:
-
-. link:https://www.linkedin.com/pulse/from-java-8-kotlin-aliaksandr-liakh
+link:https://www.linkedin.com/pulse/from-java-8-kotlin-aliaksandr-liakh[TODO]
 
 //end::content[]

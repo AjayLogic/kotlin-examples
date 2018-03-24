@@ -68,8 +68,7 @@ class TestClient {
     private fun sendMessage(message: String) = Socket("127.0.0.1", 8080).use { socket ->
 
       socket.getOutputStream().use { o ->
-        val request = "hello"
-        val requestData = request.toByteArray(UTF_8)
+        val requestData = message.toByteArray(UTF_8)
         o.write(requestData)
 
         socket.getInputStream().use { i ->

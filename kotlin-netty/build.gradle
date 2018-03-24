@@ -1,3 +1,5 @@
-dependencies {
-  compile "io.netty:netty-transport:4.1.21.Final"
+allprojects {
+  dependencies {
+    compile "io.netty:netty-transport:4.1.22.Final"
+  }
 }

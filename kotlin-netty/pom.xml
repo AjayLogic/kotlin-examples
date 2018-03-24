@@ -10,48 +10,19 @@
   </parent>
 
   <artifactId>kotlin-netty</artifactId>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>netty-server</module>
+    <module>netty-client</module>
+  </modules>
 
   <dependencies>
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-transport</artifactId>
-      <version>4.1.21.Final</version>
+      <version>4.1.22.Final</version>
     </dependency>
   </dependencies>
 
-  <build>
-    <plugins>
-      <!-- docker -->
-      <!--
-      <plugin>
-        <groupId>com.dkanejs.maven.plugins</groupId>
-        <artifactId>docker-compose-maven-plugin</artifactId>
-        <version>1.0.1</version>
-        <executions>
-          <execution>
-            <id>up</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>up</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>down</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>down</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <composeFile>${project.basedir}/docker-compose-maven.yaml</composeFile>
-          <detachedMode>true</detachedMode>
-          <removeVolumes>true</removeVolumes>
-          <detail>true</detail>
-        </configuration>
-      </plugin>
-      -->
-    </plugins>
-  </build>
 </project>

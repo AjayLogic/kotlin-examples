@@ -144,6 +144,7 @@
         </configuration>
       </plugin>
 
+      <!-- Kotlin -->
       <plugin>
         <artifactId>kotlin-maven-plugin</artifactId>
         <groupId>org.jetbrains.kotlin</groupId>

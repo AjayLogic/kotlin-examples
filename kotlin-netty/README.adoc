@@ -3,17 +3,18 @@
 //tag::content[]
 === kotlin-netty
 
+[sources,bash]
 ----
-./gradlew
-java -jar build/libs/*-all.jar
-bash build/libs/*-all.jar
-
-./gradlew installDist
-bash kotlin-netty/build/install/kotlin-netty/bin/kotlin-netty
-
+# build
 ./mvnw
-java -jar target/*-all.jar
-bash target/*-all.jar
+./gradlew
+
+# run server
+bash kotlin-netty/netty-server/build/install/netty-server/bin/netty-server --port=8000
+
+# send client requests
+java -jar kotlin-netty/netty-client/build/libs/netty-client-*-all.jar --port 8000 --host=192.168.0.105 --request=hello
+java -jar kotlin-netty/netty-client/target/*-all.jar --port=8000 --host=192.168.0.105 --request=world!
 ----
 
 . link:https://netty.io/wiki/all-documents.html[Netty reference]

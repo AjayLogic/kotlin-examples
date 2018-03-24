@@ -11,7 +11,7 @@ language: java
 jdk: oraclejdk8
 install: true
 before_script:
-- sudo apt update -y || true >/dev/null 2>&1
+- sudo apt update -y >/dev/null 2>&1 || true
 - sudo apt install -y --no-install-recommends bash unzip curl >/dev/null 2>&1
 - source <(curl -fsSL https://raw.github.com/daggerok/bash-functions/master/main.bash)
 - stop_any 27017 8080 80
@@ -24,6 +24,12 @@ script:
 #
 - bash gradlew >/dev/null 2>&1
 - bash mvnw >/dev/null 2>&1
+#
+- bash kotlin-netty/netty-server/build/install/netty-server/bin/netty-server --port=8000 &
+- wait_for 8000
+- bash kotlin-netty/netty-client/build/install/netty-client/bin/netty-client --port=8000 --request=ololo
+- java -jar kotlin-netty/netty-client/target/netty-client-*-all.jar --port=8000 --host=127.0.0.1 --request=trololo
+- stop_any 8000 8080 80
 #
 - java -jar kotlin-coroutines-echo-ehlo/build/libs/*-all.jar
 - stop_any 8080 80
@@ -69,17 +75,6 @@ script:
 - stop_any 6379
 - java -jar redis-lettuce/target/*-all.jar
 - stop_any 6379
-#
-- java -jar kotlin-netty/build/libs/*-all.jar
-- bash kotlin-netty/build/install/kotlin-netty/bin/kotlin-netty
-- >
-  for arch in \
-    $(ls kotlin-netty/build/distributions/*.zip) \
-  ; do
-    unzip -o ${arch} -d /tmp
-  done;
-- bash /tmp/kotlin-netty-0.0.1/bin/kotlin-netty
-- java -jar kotlin-netty/target/*-all.jar
 cache:
   directories:
   - ${HOME}/.m2

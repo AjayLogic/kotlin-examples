@@ -12,5 +12,5 @@ class AppKt {
 */
 
 fun main(args: Array<String>) {
-  println("hey!")
+  println("see kotlin-netty module")
 }
