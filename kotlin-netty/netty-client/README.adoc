@@ -3,9 +3,10 @@
 //tag::content[]
 === netty-client
 
+[sources,bash]
 ----
 ./gradlew
-java -jar kotlin-netty/netty-client/build/libs/netty-client-*-all.jar --request=ololo-trololo
+java -jar build/libs/netty-client-*-all.jar --request=ololo-trololo
 
 ./mvnw
 java -jar target/*-all.jar --host=127.0.0.1 --port=8080 --request=ololo-trololo

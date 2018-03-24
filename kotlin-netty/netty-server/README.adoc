@@ -3,6 +3,7 @@
 //tag::content[]
 === netty-server
 
+[sources,bash]
 ----
 ./gradlew
 bash build/libs/*-all.jar --port=8080

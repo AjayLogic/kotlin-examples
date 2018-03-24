@@ -3,17 +3,16 @@
 //tag::content[]
 === redis-lettuce
 
+[sources,bash]
 ----
 ./gradlew
 java -jar build/libs/*-all.jar
-bash build/libs/*-all.jar
 
 ./gradlew installDist
 bash redis-lettuce/build/install/redis-lettuce/bin/redis-lettuce
 
 ./mvnw
 java -jar target/*-all.jar
-bash target/*-all.jar
 ----
 
 //end::content[]

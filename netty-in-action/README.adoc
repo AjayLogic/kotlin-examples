@@ -2,19 +2,20 @@
 
 //tag::content[]
 === netty-in-action
-please, don't use that shit, it's all about coroutines usage..
+useless...
 
+Reading in progress: page 29
+
+[sources,bash]
 ----
 ./gradlew
 java -jar build/libs/*-all.jar
-bash build/libs/*-all.jar
 
 ./gradlew installDist
 bash netty-in-action/build/install/netty-in-action/bin/netty-in-action
 
 ./mvnw
 java -jar target/*-all.jar
-bash target/*-all.jar
 ----
 
 //end::content[]

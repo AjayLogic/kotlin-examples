@@ -4,17 +4,16 @@
 === plain-java-sockets
 please, don't use that shit, it's all about coroutines usage..
 
+[sources,bash]
 ----
 ./gradlew
 java -jar build/libs/*-all.jar
-bash build/libs/*-all.jar
 
 ./gradlew installDist
 bash plain-java-sockets/build/install/plain-java-sockets/bin/plain-java-sockets
 
 ./mvnw
 java -jar target/*-all.jar
-bash target/*-all.jar
 ----
 
 //end::content[]

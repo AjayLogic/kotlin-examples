@@ -5,6 +5,7 @@ TODO: in progress ...in very beginning
 
 . link:./kotlin-coroutines-echo-ehlo[Kotln coroutines plain socket echo-ehlo service]
 . link:./kotlin-netty[Kotlin Netty request-response / client-server app]
+. link:./netty-in-action[Netty in Action (in progress...)]
 
 other repos:
 
