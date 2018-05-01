@@ -1,21 +1,20 @@
 = kotlin-examples image:https://travis-ci.org/daggerok/kotlin-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/kotlin-examples"]
 
 //tag::content[]
-TODO: in progress ...in very beginning
-
-. link:./kotlin-coroutines-echo-ehlo[Kotln coroutines plain socket echo-ehlo service]
-. link:./kotlin-netty[Kotlin Netty request-response / client-server app]
-. link:./netty-in-action[Netty in Action (in progress...)]
+- link:./kotlin-coroutines-echo-ehlo[Kotln coroutines plain socket echo-ehlo service]
+- link:./kotlin-netty[Kotlin Netty request-response / client-server app]
+- link:./netty-in-action[Netty in Action (in progress...)]
 
 other repos:
 
-. link:https://github.com/daggerok/kotlin-ktor[Kotlin | Ktor]
-. link:https://github.com/daggerok/spring-data-examples/tree/master/redis-store[Kotlin | Redis Store]
-. link:https://github.com/daggerok/spring-kotlin-examples[Github: daggerok/spring-kotlin-examples]
+- link:https://github.com/daggerok/spring-kotlin-examples[Spring Boot | Kotlin examples]
+- link:https://github.com/daggerok/kotlin-ktor[Kotlin | Ktor]
+- link:https://github.com/daggerok/spring-data-examples/tree/master/redis-store[Kotlin | Redis Store]
+- link:https://github.com/daggerok/spring-kotlin-examples[Github: daggerok/spring-kotlin-examples]
 
 links:
 
-. link:https://docs.gradle.org/current/userguide/distribution_plugin.html[gradle distribution plugin]
+- link:https://docs.gradle.org/current/userguide/distribution_plugin.html[gradle distribution plugin]
 
 link:https://www.linkedin.com/pulse/from-java-8-kotlin-aliaksandr-liakh[TODO]
 
